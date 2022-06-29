@@ -14,7 +14,7 @@ npm install svelte-gesture
 
 ## Usage
 
-```html
+```svelte
 <script>
   import { spring } from 'svelte/motion'
   import { drag } from 'svelte-gesture'
