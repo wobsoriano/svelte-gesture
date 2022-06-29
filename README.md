@@ -6,10 +6,20 @@ svelte-gesture is a library that lets you bind richer mouse and touch events to 
 
 Each recognizer is implemented as an action that emits custom events. To make the most of it you should combine it with Svelte's [spring](https://svelte.dev/tutorial/spring) function.
 
-## Install
+## Installation
 
 ```bash
 npm install svelte-gesture
+```
+
+To get TypeScript working, add `svelte-gesture/globals` to the `types` field in your `tsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "types": ["svelte-gesture/globals"]
+  }
+}
 ```
 
 ## Usage
