@@ -54,7 +54,7 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
 ### Simple example
 
 <p align="middle">
-  <a href="https://stackblitz.com/edit/vitejs-vite-9squm1?file=src/App.svelte"><img src="https://i.imgur.com/AMzsEi3.gif" width="400"/></a>
+  <a href="https://stackblitz.com/edit/vitejs-vite-9squm1?file=src/App.svelte"><img src="https://i.imgur.com/7myz7Tt.gif" width="400"/></a>
 </p>
 
 ## Actions
