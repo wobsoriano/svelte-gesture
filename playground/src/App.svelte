@@ -4,11 +4,11 @@
 
   let coords = spring({ x: 0, y: 0 });
 
-  function handler(payload: CustomEvent<GestureEvent<'pinch'>>) {
+  function handler({ detail }: CustomEvent<GestureEvent<'pinch'>>) {
     const {
       active,
       movement: [mx, my]
-    } = payload.detail
+    } = detail
 
     coords.set({
       x: active ? mx : 0,
