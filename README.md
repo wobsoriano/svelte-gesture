@@ -63,6 +63,7 @@ svelte-gesture exports several actions that can handle different gestures.
 
 | Action       | Description                                |
 |--------------|--------------------------------------------|
+| `drag`       | Handles mouse drag events                  |
 | `move`       | Handles mouse move events                  |
 | `hover`      | Handles mouse enter and mouse leave events |
 | `scroll`     | Handles scroll events                      |
