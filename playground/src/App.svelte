@@ -1,10 +1,11 @@
 <script lang="ts">
   import { spring } from 'svelte/motion';
-  import { drag, GestureEvent } from 'svelte-gesture'
+  import { drag } from 'svelte-gesture'
+  import type { GestureEvent } from 'svelte-gesture'
+  
+  let coords = spring({ x: 0, y: 0, scale: 1 });
 
-  let coords = spring({ x: 0, y: 0 });
-
-  function handler({ detail }: CustomEvent<GestureEvent<'pinch'>>) {
+  function handler({ detail }: CustomEvent<GestureEvent<'drag'>>) {
     const {
       active,
       movement: [mx, my]
@@ -12,29 +13,40 @@
 
     coords.set({
       x: active ? mx : 0,
-      y: active ? my : 0
+      y: active ? my : 0,
+      scale: active ? 1.2 : 1
     })
   }
 </script>
 
-<div
-  class="box"
-  use:drag
-  on:drag={handler}
-  style="transform: translate({$coords.x}px, {$coords.y}px)"
-></div>
+<div class="flex fill center">
+  <div
+    class="drag"
+    use:drag
+    on:drag={handler}
+    style="transform: translate3d({$coords.x}px, {$coords.y}px, 0) scale({$coords.scale})"
+  />
+</div>
 
 <style>
-  .box {
-    background: skyblue;
-    height: 100px;
-    width: 100px;
-    touch-action: none;
-    cursor: move;
-    cursor: grab
-  }
+.drag {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 8px;
+  background-color: hotpink;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 10px;
+}
 
-  .box:active {
-    cursor: grabbing;
-  }
+.drag:focus {
+  border: 2px solid red;
+}
+
+.drag:active {
+  cursor: grabbing;
+}
 </style>
