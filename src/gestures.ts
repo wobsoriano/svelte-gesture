@@ -1,4 +1,11 @@
-import { DragGesture, HoverGesture, MoveGesture, PinchGesture, ScrollGesture, WheelGesture } from '@use-gesture/vanilla'
+import {
+  DragGesture,
+  HoverGesture,
+  MoveGesture,
+  PinchGesture,
+  ScrollGesture,
+  WheelGesture,
+} from '@use-gesture/vanilla'
 
 export function drag(node: HTMLElement) {
   const gesture = new DragGesture(node, (payload) => {
