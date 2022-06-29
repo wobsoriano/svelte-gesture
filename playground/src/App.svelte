@@ -1,6 +1,6 @@
 <script lang="ts">
   import { spring } from 'svelte/motion';
-  import { pinch, GestureEvent } from 'svelte-gesture'
+  import { drag, GestureEvent } from 'svelte-gesture'
 
   let coords = spring({ x: 0, y: 0 });
 
@@ -19,8 +19,8 @@
 
 <div
   class="box"
-  use:pinch
-  on:pinch={handler}
+  use:drag
+  on:drag={handler}
   style="transform: translate({$coords.x}px, {$coords.y}px)"
 ></div>
 
@@ -30,5 +30,11 @@
     height: 100px;
     width: 100px;
     touch-action: none;
+    cursor: move;
+    cursor: grab
+  }
+
+  .box:active {
+    cursor: grabbing;
   }
 </style>
