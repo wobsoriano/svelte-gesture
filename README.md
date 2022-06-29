@@ -34,5 +34,9 @@ npm install svelte-gesture
   }
 </script>
 
-<div use:drag on:drag={handler} style="transform: translate({$coords.x}px, {$coords.y}px)"></div>
+<div
+  use:drag
+  on:drag={handler}
+  style="transform: translate({$coords.x}px, {$coords.y}px)"
+/>
 ```
