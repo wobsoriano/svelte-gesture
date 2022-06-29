@@ -25,13 +25,13 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
 ## Usage
 
 ```svelte
-<script lang="ts">
+<script>
   import { spring } from 'svelte/motion'
-  import { drag, GestureEvent } from 'svelte-gesture'
+  import { drag } from 'svelte-gesture'
 
   let coords = spring({ x: 0, y: 0 })
 
-  function handler({ detail }: CustomEvent<GestureEvent<'drag'>>) {
+  function handler({ detail }) {
     const {
       active,
       movement: [mx, my]
