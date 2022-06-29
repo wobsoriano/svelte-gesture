@@ -57,6 +57,8 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
   <a href="https://stackblitz.com/edit/vitejs-vite-9squm1?file=src/App.svelte"><img src="https://i.imgur.com/7myz7Tt.gif" width="400"/></a>
 </p>
 
+More examples soon...
+
 ## Actions
 
 svelte-gesture exports several actions that can handle different gestures.
