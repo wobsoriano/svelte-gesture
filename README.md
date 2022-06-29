@@ -40,3 +40,19 @@ npm install svelte-gesture
   style="transform: translate({$coords.x}px, {$coords.y}px)"
 />
 ```
+
+## Actions
+
+svelte-gesture exports several actions that can handle different gestures.
+
+| Action       | Description                                |
+|--------------|--------------------------------------------|
+| `move`       | Handles mouse move events                  |
+| `hover`      | Handles mouse enter and mouse leave events |
+| `scroll`     | Handles scroll events                      |
+| `wheel`      | Handles wheel events                       |
+| `pinch`      | Handles the pinch gesture                  |
+
+## License
+
+MIT
