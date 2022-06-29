@@ -50,5 +50,8 @@
   },
   "eslintConfig": {
     "extends": "@antfu"
+  },
+  "dependencies": {
+    "@use-gesture/vanilla": "^10.2.16"
   }
 }
