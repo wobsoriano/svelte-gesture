@@ -2,7 +2,7 @@
   "name": "svelte-gesture",
   "version": "0.0.1",
   "packageManager": "pnpm@7.3.0",
-  "description": "",
+  "description": "👇 Bread n butter utility for component-tied mouse/touch gestures in Svelte.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/wobsoriano/svelte-gesture#readme",
