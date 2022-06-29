@@ -1,1 +1,1 @@
-export { drag } from './drag'
+export * from './gestures'
