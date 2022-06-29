@@ -11,7 +11,16 @@
     "url": "git+https://github.com/wobsoriano/svelte-gesture.git"
   },
   "bugs": "https://github.com/wobsoriano/svelte-gesture/issues",
-  "keywords": [],
+  "keywords": [
+    "svelte",
+    "directive",
+    "wheel",
+    "drag",
+    "scroll",
+    "zoom",
+    "gestures",
+    "pinch"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
