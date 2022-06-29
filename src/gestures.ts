@@ -1,3 +1,6 @@
+import type {
+  FullGestureState, GestureKey,
+} from '@use-gesture/vanilla'
 import {
   DragGesture,
   HoverGesture,
@@ -89,4 +92,8 @@ export function pinch(node: HTMLElement) {
       gesture.destroy()
     },
   }
+}
+
+export type GestureEvent<Key extends GestureKey> = Omit<FullGestureState<Key>, 'event'> & {
+  event: PointerEvent | MouseEvent | TouchEvent | KeyboardEvent
 }

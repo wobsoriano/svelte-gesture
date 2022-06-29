@@ -1,10 +1,10 @@
 <script lang="ts">
   import { spring } from 'svelte/motion';
-  import { drag } from 'svelte-gesture'
+  import { pinch, GestureEvent } from 'svelte-gesture'
 
   let coords = spring({ x: 0, y: 0 });
 
-  function handler(payload) {
+  function handler(payload: CustomEvent<GestureEvent<'pinch'>>) {
     const {
       active,
       movement: [mx, my]
@@ -19,8 +19,8 @@
 
 <div
   class="box"
-  use:drag
-  on:drag={handler}
+  use:pinch
+  on:pinch={handler}
   style="transform: translate({$coords.x}px, {$coords.y}px)"
 ></div>
 
