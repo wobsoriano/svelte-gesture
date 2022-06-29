@@ -21,11 +21,11 @@ npm install svelte-gesture
 
   let coords = spring({ x: 0, y: 0 })
 
-  function handler(payload) {
+  function handler({ detail }) {
     const {
       active,
       movement: [mx, my]
-    } = payload.detail
+    } = detail
 
     coords.set({
       x: active ? mx : 0,
