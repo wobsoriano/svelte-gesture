@@ -25,7 +25,7 @@
     use:drag
     on:drag={handler}
     tabindex="-1"
-    style="transform: translate3d({$coords.x}px, {$coords.y}px, 0) scale({$coords.scale})"
+    style:transform="translate3d({$coords.x}px, {$coords.y}px, 0) scale({$coords.scale})"
   />
 </div>
 
