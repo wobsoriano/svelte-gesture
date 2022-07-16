@@ -24,7 +24,7 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
 
 ## Usage
 
-```svelte
+```html
 <script>
   import { spring } from 'svelte/motion'
   import { drag } from 'svelte-gesture'
