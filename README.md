@@ -44,7 +44,7 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
 	}
 </script>
 
-<div use:drag on:drag="{handler}" style:transform="translate({$coords.x}px, {$coords.y}px)" />
+<div use:drag on:drag={handler} style:transform="translate({$coords.x}px, {$coords.y}px)" />
 ```
 
 ### Simple example
