@@ -1,3 +1,3 @@
-export * from './gestures.js'
+export * from './gestures.js';
 
-export * from '@use-gesture/vanilla'
+export * from '@use-gesture/vanilla';

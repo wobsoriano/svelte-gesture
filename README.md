@@ -16,9 +16,9 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
 
 ```json
 {
-  "compilerOptions": {
-    "types": ["svelte-gesture/globals"]
-  }
+	"compilerOptions": {
+		"types": ["svelte-gesture/globals"]
+	}
 }
 ```
 
@@ -26,29 +26,25 @@ To get TypeScript working, add `svelte-gesture/globals` to the `types` field in 
 
 ```html
 <script>
-  import { spring } from 'svelte/motion'
-  import { drag } from 'svelte-gesture'
+	import { spring } from 'svelte/motion';
+	import { drag } from 'svelte-gesture';
 
-  let coords = spring({ x: 0, y: 0 })
+	let coords = spring({ x: 0, y: 0 });
 
-  function handler({ detail }) {
-    const {
-      active,
-      movement: [mx, my]
-    } = detail
+	function handler({ detail }) {
+		const {
+			active,
+			movement: [mx, my]
+		} = detail;
 
-    coords.set({
-      x: active ? mx : 0,
-      y: active ? my : 0
-    })
-  }
+		coords.set({
+			x: active ? mx : 0,
+			y: active ? my : 0
+		});
+	}
 </script>
 
-<div
-  use:drag
-  on:drag={handler}
-  style:transform="translate({$coords.x}px, {$coords.y}px)"
-/>
+<div use:drag on:drag="{handler}" style:transform="translate({$coords.x}px, {$coords.y}px)" />
 ```
 
 ### Simple example
@@ -63,14 +59,14 @@ More examples soon...
 
 svelte-gesture exports several actions that can handle different gestures.
 
-| Action       | Description                                |
-|--------------|--------------------------------------------|
-| `drag`       | Handles the drag gesture                   |
-| `move`       | Handles mouse move events                  |
-| `hover`      | Handles mouse enter and mouse leave events |
-| `scroll`     | Handles scroll events                      |
-| `wheel`      | Handles wheel events                       |
-| `pinch`      | Handles the pinch gesture                  |
+| Action   | Description                                |
+| -------- | ------------------------------------------ |
+| `drag`   | Handles the drag gesture                   |
+| `move`   | Handles mouse move events                  |
+| `hover`  | Handles mouse enter and mouse leave events |
+| `scroll` | Handles scroll events                      |
+| `wheel`  | Handles wheel events                       |
+| `pinch`  | Handles the pinch gesture                  |
 
 ## License
 
