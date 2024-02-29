@@ -48,5 +48,8 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@use-gesture/vanilla": "^10.3.0"
+	}
 }
