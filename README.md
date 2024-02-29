@@ -1,58 +1,77 @@
-# create-svelte
+# svelte-gesture
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+[![npm (tag)](https://img.shields.io/npm/v/svelte-gesture?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/svelte-gesture) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/svelte-gesture?style=flat&colorA=000000&colorB=000000) ![NPM](https://img.shields.io/npm/l/svelte-gesture?style=flat&colorA=000000&colorB=000000)
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+svelte-gesture is a library that lets you bind richer mouse and touch events to any component or view. With the data you receive, it becomes trivial to set up gestures, and often takes no more than a few lines of code.
 
-## Creating a project
+Each recognizer is implemented as an action that emits custom events. To make the most of it you should combine it with Svelte's [spring](https://svelte.dev/tutorial/spring) function.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Installation
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install svelte-gesture
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+To get TypeScript working, add `svelte-gesture/globals` to the `types` field in your `tsconfig.json`
 
-## Building
-
-To build your library:
-
-```bash
-npm run package
+```json
+{
+  "compilerOptions": {
+    "types": ["svelte-gesture/globals"]
+  }
+}
 ```
 
-To create a production version of your showcase app:
+## Usage
 
-```bash
-npm run build
+```html
+<script>
+  import { spring } from 'svelte/motion'
+  import { drag } from 'svelte-gesture'
+
+  let coords = spring({ x: 0, y: 0 })
+
+  function handler({ detail }) {
+    const {
+      active,
+      movement: [mx, my]
+    } = detail
+
+    coords.set({
+      x: active ? mx : 0,
+      y: active ? my : 0
+    })
+  }
+</script>
+
+<div
+  use:drag
+  on:drag={handler}
+  style:transform="translate({$coords.x}px, {$coords.y}px)"
+/>
 ```
 
-You can preview the production build with `npm run preview`.
+### Simple example
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<p align="middle">
+  <a href="https://stackblitz.com/edit/vitejs-vite-9squm1?file=src/App.svelte"><img src="https://i.imgur.com/7myz7Tt.gif" width="400"/></a>
+</p>
 
-## Publishing
+More examples soon...
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+## Actions
 
-To publish your library to [npm](https://www.npmjs.com):
+svelte-gesture exports several actions that can handle different gestures.
 
-```bash
-npm publish
-```
+| Action       | Description                                |
+|--------------|--------------------------------------------|
+| `drag`       | Handles the drag gesture                   |
+| `move`       | Handles mouse move events                  |
+| `hover`      | Handles mouse enter and mouse leave events |
+| `scroll`     | Handles scroll events                      |
+| `wheel`      | Handles wheel events                       |
+| `pinch`      | Handles the pinch gesture                  |
+
+## License
+
+MIT
